@@ -6,11 +6,16 @@
         "description": "the hello world app for Holochain",
         "language": "en"
     },
-    "PropertiesSchemaFile": "properties_schema.json",
+    "PropertiesSchemaFile": "",
+    "BasedOn": "",
     "RequiresVersion": 26,
     "DHTConfig": {
         "HashType": "sha2-256",
         "RedundancyFactor": 0
+    },
+    "Progenitor": {
+        "Identity": "",
+        "PubKey": null
     },
     "Zomes": [
         {
@@ -24,17 +29,21 @@
                 {
                     "Name": "holoText",
                     "DataFormat": "string",
+                    "Schema": "",
+                    "SchemaFile": "",
                     "Sharing": "public"
                 }
             ],
             "Functions": [
                 {
                     "Name": "holoTextWrite",
-                    "CallingType": "string"
+                    "CallingType": "string",
+                    "Exposure": ""
                 },
                 {
                     "Name": "holoTextRead",
-                    "CallingType": "string"
+                    "CallingType": "string",
+                    "Exposure": ""
                 },
                 {
                     "Name": "doSampleAction",
