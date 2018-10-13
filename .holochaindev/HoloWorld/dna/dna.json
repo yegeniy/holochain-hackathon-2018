@@ -38,12 +38,12 @@
                 {
                     "Name": "holoTextWrite",
                     "CallingType": "string",
-                    "Exposure": ""
+                    "Exposure": "public"
                 },
                 {
                     "Name": "holoTextRead",
                     "CallingType": "string",
-                    "Exposure": ""
+                    "Exposure": "public"
                 },
                 {
                     "Name": "doSampleAction",

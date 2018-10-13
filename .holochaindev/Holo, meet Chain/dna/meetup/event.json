@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "http://example.com/meetup/event.json",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": ".+"
+    },
+    "date": {
+      "default": "",
+      "type": "string",
+      "pattern": ".+"
+    },
+    "location": {
+      "default": "",
+      "type": "string",
+      "pattern": ".+"
+    },
+    "tags": {
+      "default": [],
+      "items": {
+        "type": "string",
+        "pattern": ".+"
+      },
+      "type": "array"
+    }
+  }
+}

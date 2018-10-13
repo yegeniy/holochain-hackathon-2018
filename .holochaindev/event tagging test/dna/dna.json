@@ -1,0 +1,111 @@
+{
+    "Version": 1,
+    "UUID": "a11b481c-b7bf-452b-a2e6-2f6317888a77",
+    "Name": "event tagging test",
+    "Properties": {
+        "description": "linking events to tags",
+        "language": "en"
+    },
+    "PropertiesSchemaFile": "",
+    "BasedOn": "",
+    "RequiresVersion": 0,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "RedundancyFactor": 0
+    },
+    "Progenitor": {
+        "Identity": "",
+        "PubKey": null
+    },
+    "Zomes": [
+        {
+            "Name": "eventtagging",
+            "Description": "event tagging",
+            "CodeFile": "eventtagging.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "event",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "event.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "event_links",
+                    "DataFormat": "links",
+                    "Schema": "",
+                    "SchemaFile": "",
+                    "Sharing": "public"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "eventCreate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "eventRead",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "eventUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "listEventsByTag",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                }
+            ]
+        },
+        {
+            "Name": "anchors",
+            "Description": "anchors mixin",
+            "CodeFile": "anchors.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": {
+                "returnErrors": true
+            },
+            "Entries": [
+                {
+                    "Name": "anchor",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "anchor.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "anchor_link",
+                    "DataFormat": "links",
+                    "Schema": "",
+                    "SchemaFile": "",
+                    "Sharing": ""
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "anchor",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "exists",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "anchors",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                }
+            ]
+        }
+    ]
+}

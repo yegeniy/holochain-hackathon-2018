@@ -10,3 +10,22 @@ la
 ls
 cd HoloWorld/
 ls -la
+cd ~
+ll
+ls
+cd HoloWorld/
+hcdev test
+hcdev test
+hcdev test
+hcdev test
+hcdev test
+hcdev test
+hcdev test
+hcdev test
+hcd -h
+hcadmin -h
+hcdev web
+cd ~/HoloWorld/
+hcdev web
+hcdev web
+docker run -h

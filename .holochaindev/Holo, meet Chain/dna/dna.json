@@ -1,0 +1,165 @@
+{
+    "Version": 1,
+    "UUID": "25ca965f-b39c-4bc6-8eef-0a5329cf2b31",
+    "Name": "Holo, meet Chain",
+    "Properties": {
+        "description": "A meetup clone. Federated for now, distributed eventually.",
+        "language": "en"
+    },
+    "PropertiesSchemaFile": "",
+    "BasedOn": "",
+    "RequiresVersion": 0,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "RedundancyFactor": 0
+    },
+    "Progenitor": {
+        "Identity": "",
+        "PubKey": null
+    },
+    "Zomes": [
+        {
+            "Name": "meetup",
+            "Description": "models a holo meetup organization",
+            "CodeFile": "meetup.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "group",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "group.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "event",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "event.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "rsvp",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "rsvp.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "group_host_links",
+                    "DataFormat": "links",
+                    "Schema": "",
+                    "SchemaFile": "",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "user",
+                    "DataFormat": "json",
+                    "Schema": "",
+                    "SchemaFile": "user.json",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "group_event_links",
+                    "DataFormat": "links",
+                    "Schema": "",
+                    "SchemaFile": "",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "event_links",
+                    "DataFormat": "links",
+                    "Schema": "",
+                    "SchemaFile": "",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "group_links",
+                    "DataFormat": "links",
+                    "Schema": "",
+                    "SchemaFile": "",
+                    "Sharing": "public"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "groupCreate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "groupRead",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "groupUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "eventCreate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "eventRead",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "eventUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "rsvpCreate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "rsvpRead",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "rsvpUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "rsvpDelete",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "userCreate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "userRead",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "userUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hostGroup",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "hostEvent",
+                    "CallingType": "json",
+                    "Exposure": ""
+                }
+            ]
+        }
+    ]
+}

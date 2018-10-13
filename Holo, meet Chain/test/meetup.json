@@ -1,0 +1,147 @@
+{
+  "Tests": [
+    {
+      "Convey": "auto-generated test for groupCreate",
+      "Zome": "meetup",
+      "FnName": "groupCreate",
+      "Input": {
+        "name": "a string",
+        "tags": [
+          "a string"
+        ]
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for groupRead",
+      "Zome": "meetup",
+      "FnName": "groupRead",
+      "Input": "%h%",
+      "Output": {
+        "name": "a string",
+        "tags": [
+          "a string"
+        ]
+      }
+    },
+    {
+      "Convey": "auto-generated test for groupUpdate",
+      "Zome": "meetup",
+      "FnName": "groupUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for eventCreate",
+      "Zome": "meetup",
+      "FnName": "eventCreate",
+      "Input": {
+        "name": "a string",
+        "date": "a string",
+        "location": "a string",
+        "tags": [
+          "a string"
+        ]
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for eventRead",
+      "Zome": "meetup",
+      "FnName": "eventRead",
+      "Input": "%h%",
+      "Output": {
+        "name": "a string",
+        "date": "a string",
+        "location": "a string",
+        "tags": [
+          "a string"
+        ]
+      }
+    },
+    {
+      "Convey": "auto-generated test for eventUpdate",
+      "Zome": "meetup",
+      "FnName": "eventUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for rsvpCreate",
+      "Zome": "meetup",
+      "FnName": "rsvpCreate",
+      "Input": {
+        "attendees": 0,
+        "event": "a string"
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for rsvpRead",
+      "Zome": "meetup",
+      "FnName": "rsvpRead",
+      "Input": "%h%",
+      "Output": {
+        "attendees": 0,
+        "event": "a string"
+      }
+    },
+    {
+      "Convey": "auto-generated test for rsvpUpdate",
+      "Zome": "meetup",
+      "FnName": "rsvpUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for rsvpDelete",
+      "Zome": "meetup",
+      "FnName": "rsvpDelete",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for userCreate",
+      "Zome": "meetup",
+      "FnName": "userCreate",
+      "Input": {
+        "age": 0,
+        "name": "a string",
+        "email": "a string"
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for userRead",
+      "Zome": "meetup",
+      "FnName": "userRead",
+      "Input": "%h%",
+      "Output": {
+        "age": 0,
+        "name": "a string",
+        "email": "a string"
+      }
+    },
+    {
+      "Convey": "auto-generated test for userUpdate",
+      "Zome": "meetup",
+      "FnName": "userUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for hostGroup",
+      "Zome": "meetup",
+      "FnName": "hostGroup",
+      "Input": "",
+      "Output": "a string"
+    },
+    {
+      "Convey": "auto-generated test for hostEvent",
+      "Zome": "meetup",
+      "FnName": "hostEvent",
+      "Input": "",
+      "Output": {}
+    }
+  ]
+}

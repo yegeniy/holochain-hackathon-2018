@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "http://example.com/meetup/user.json",
+  "type": "object",
+  "required": [
+    "name",
+    "email"
+  ],
+  "properties": {
+    "age": {
+      "maximum": 120,
+      "minimum": 0,
+      "default": 0,
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "pattern": ".+"
+    },
+    "email": {
+      "type": "string",
+      "pattern": ".+"
+    }
+  }
+}

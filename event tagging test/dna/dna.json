@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "UUID": "a11b481c-b7bf-452b-a2e6-2f6317888a77",
+  "Name": "event tagging test",
+  "Properties": {
+    "description": "linking events to tags",
+    "language": "en"
+  },
+  "PropertiesSchemaFile": "properties_schema.json",
+  "DHTConfig": {
+    "HashType": "sha2-256"
+  },
+  "Zomes": [
+    {
+      "Name": "eventtagging",
+      "Description": "event tagging",
+      "RibosomeType": "js",
+      "CodeFile": "eventtagging.js",
+      "Entries": [
+        {
+          "Name": "event",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "event.json"
+        },
+        {
+          "Name": "event_links",
+          "Required": true,
+          "DataFormat": "links",
+          "Sharing": "public"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "eventCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "eventRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "eventUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "listEventsByTag",
+          "CallingType": "string",
+          "Exposure": "public"
+        }
+      ]
+    },
+    {
+      "Name": "anchors",
+      "Description": "anchors mixin",
+      "RibosomeType": "js",
+      "CodeFile": "anchors.js",
+      "Config": {
+        "returnErrors": true
+      },
+      "Entries": [
+        {
+          "Name": "anchor",
+          "DataFormat": "json",
+          "SchemaFile": "anchor.json",
+          "Sharing": "public"
+        },
+        {
+          "Name": "anchor_link",
+          "DataFormat": "links"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "anchor",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "exists",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "anchors",
+          "CallingType": "string",
+          "Exposure": "public"
+        }
+      ]
+    }
+  ]
+}

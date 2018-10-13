@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "UUID": "25ca965f-b39c-4bc6-8eef-0a5329cf2b31",
+  "Name": "Holo, meet Chain",
+  "Properties": {
+    "description": "A meetup clone. Federated for now, distributed eventually.",
+    "language": "en"
+  },
+  "PropertiesSchemaFile": "properties_schema.json",
+  "DHTConfig": {
+    "HashType": "sha2-256"
+  },
+  "Zomes": [
+    {
+      "Name": "meetup",
+      "Description": "models a holo meetup organization",
+      "RibosomeType": "js",
+      "CodeFile": "meetup.js",
+      "Config": {
+        "returnErrors": true
+      },
+      "Entries": [
+        {
+          "Name": "group",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "group.json"
+        },
+        {
+          "Name": "event",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "event.json"
+        },
+        {
+          "Name": "rsvp",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "rsvp.json"
+        },
+        {
+          "Name": "group_host_links",
+          "Required": true,
+          "DataFormat": "links",
+          "Sharing": "public"
+        },
+        {
+          "Name": "user",
+          "Required": true,
+          "DataFormat": "json",
+          "Sharing": "public",
+          "SchemaFile": "user.json"
+        },
+        {
+          "Name": "group_links",
+          "Required": true,
+          "DataFormat": "links",
+          "Sharing": "public"
+        },
+        {
+          "Name": "event_links",
+          "Required": true,
+          "DataFormat": "links",
+          "Sharing": "public"
+        },
+        {
+          "Name": "tag_links",
+          "Required": true,
+          "DataFormat": "links",
+          "Sharing": "public"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "groupCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "groupRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "groupUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "eventCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "eventRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "eventUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "rsvpCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "rsvpRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "rsvpUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "rsvpDelete",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "userCreate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "userRead",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "userUpdate",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "hostGroup",
+          "CallingType": "string",
+          "Exposure": "public"
+        },
+        {
+          "Name": "listEvents",
+          "CallingType": "string",
+          "Exposure": "public"
+        },
+        {
+          "Name": "hostEvent",
+          "CallingType": "json",
+          "Exposure": ""
+        }
+      ]
+    },
+    {
+      "Name": "anchors",
+      "Description": "anchors mixin",
+      "RibosomeType": "js",
+      "CodeFile": "anchors.js",
+      "Config": {
+        "returnErrors": true
+      },
+      "Entries": [
+        {
+          "Name": "anchor",
+          "DataFormat": "json",
+          "SchemaFile": "anchor.json",
+          "Sharing": "public"
+        },
+        {
+          "Name": "anchor_link",
+          "DataFormat": "links"
+        }
+      ],
+      "Functions": [
+        {
+          "Name": "anchor",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "exists",
+          "CallingType": "json",
+          "Exposure": "public"
+        },
+        {
+          "Name": "anchors",
+          "CallingType": "string",
+          "Exposure": "public"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "Tests": [
+    {
+      "Convey": "auto-generated test for eventCreate",
+      "Zome": "eventtagging",
+      "FnName": "eventCreate",
+      "Input": {
+        "date": "a string",
+        "name": "a string",
+        "tags": [
+          "a string"
+        ]
+      },
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for eventRead",
+      "Zome": "eventtagging",
+      "FnName": "eventRead",
+      "Input": "%h%",
+      "Output": {
+        "date": "a string",
+        "name": "a string",
+        "tags": [
+          "a string"
+        ]
+      }
+    },
+    {
+      "Convey": "auto-generated test for eventUpdate",
+      "Zome": "eventtagging",
+      "FnName": "eventUpdate",
+      "Input": "%h%",
+      "Output": "%h%"
+    },
+    {
+      "Convey": "auto-generated test for listEventsByTag",
+      "Zome": "eventtagging",
+      "FnName": "listEventsByTag",
+      "Input": "",
+      "Output": "a string"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "http://example.com/meetup/group.json",
+  "type": "object",
+  "required": [
+    "name",
+    "tags"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": ".+"
+    },
+    "tags": {
+      "default": [],
+      "items": {
+        "type": "string",
+        "pattern": ".+"
+      },
+      "type": "array"
+    }
+  }
+}

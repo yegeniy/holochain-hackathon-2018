@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "id": "http://example.com/meetup/rsvp.json",
+  "type": "object",
+  "required": [
+    "event"
+  ],
+  "properties": {
+    "attendees": {
+      "minimum": 0,
+      "default": 1,
+      "type": "integer"
+    },
+    "event": {
+      "type": "string",
+      "pattern": ".+"
+    }
+  }
+}
