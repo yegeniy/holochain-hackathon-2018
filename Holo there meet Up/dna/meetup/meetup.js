@@ -92,6 +92,18 @@ function listEventsByTag (text) {
   return "a string";
 }
 
+function anchor(anchorType, anchorText) {
+  return call('anchors', 'anchor', {
+    anchorType: anchorType,
+    anchorText: anchorText
+  }).replace(/"/g, '');
+}
+function anchorExists(anchorType, anchorText) {
+  return call('anchors', 'exists', {
+    anchorType: anchorType,
+    anchorText: anchorText
+  });
+}
 
 // -----------------------------------------------------------------
 //  The Genesis Function https://developer.holochain.org/genesis
