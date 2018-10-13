@@ -72,7 +72,8 @@
       "FnName": "rsvpCreate",
       "Input": {
         "attendees": 0,
-        "event": "a string"
+        "event": "a string",
+        "ctime_iso8601_utc": "a string"
       },
       "Output": "%h%"
     },
@@ -83,7 +84,8 @@
       "Input": "%h%",
       "Output": {
         "attendees": 0,
-        "event": "a string"
+        "event": "a string",
+        "ctime_iso8601_utc": "a string"
       }
     },
     {
@@ -142,6 +144,13 @@
       "FnName": "hostEvent",
       "Input": "",
       "Output": {}
+    },
+    {
+      "Convey": "auto-generated test for listEventsByTag",
+      "Zome": "meetup",
+      "FnName": "listEventsByTag",
+      "Input": "",
+      "Output": "a string"
     }
   ]
 }
