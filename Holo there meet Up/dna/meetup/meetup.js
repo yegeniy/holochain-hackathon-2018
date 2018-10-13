@@ -7,7 +7,7 @@
 // -----------------------------------------------------------------
 //  Exposed functions with custom logic https://developer.holochain.org/API_reference
 // -----------------------------------------------------------------
-
+TAG = 'tag'
 function groupCreate (groupEntry) {
   var groupHash = commit("group", groupEntry);
   return groupHash;
@@ -26,6 +26,13 @@ function groupUpdate (groupHash) {
 
 function eventCreate (eventEntry) {
   var eventHash = commit("event", eventEntry);
+  // Look up this event by its tags
+  for (var i = eventEntry.tags.length - 1; i >= 0; i--) {
+    var tag = eventEntry.tags[i]
+    commit('event_links', {
+      Links: [{ Base: anchor(TAG, tag), Link: eventHash, Tag: TAG }]
+    });
+  }
   return eventHash;
 }
 
@@ -87,9 +94,13 @@ function hostEvent (params) {
   return {};
 }
 
-function listEventsByTag (text) {
-  // your custom code here
-  return "a string";
+function listEventsByTag (tag) {
+  var eventEntries = [];
+  eventLinks = getLinks(anchor(TAG, tag), TAG);
+  for (var i = 0; i < eventLinks.length; i++) {
+    eventEntries.push(get(eventLinks[i].Hash));
+  }
+  return JSON.stringify(eventEntries);
 }
 
 function anchor(anchorType, anchorText) {
