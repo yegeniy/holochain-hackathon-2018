@@ -147,40 +147,40 @@ function validateCommit (entryName, entry, header, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "rsvp":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "group_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     default:
       // invalid entry name
-      return false;
+      return true;
   }
 }
 
@@ -199,40 +199,40 @@ function validatePut (entryName, entry, header, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "rsvp":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "group_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     default:
       // invalid entry name
-      return false;
+      return true;
   }
 }
 
@@ -252,40 +252,40 @@ function validateMod (entryName, entry, header, replaces, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "rsvp":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "group_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     default:
       // invalid entry name
-      return false;
+      return true;
   }
 }
 
@@ -303,40 +303,40 @@ function validateDel (entryName, hash, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "rsvp":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "group_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     default:
       // invalid entry name
-      return false;
+      return true;
   }
 }
 
@@ -355,40 +355,40 @@ function validateLink (entryName, baseHash, links, pkg, sources) {
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "rsvp":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "event_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "group_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     case "user_links":
       // be sure to consider many edge cases for validating
       // do not just flip this to true without considering what that means
       // the action will ONLY be successfull if this returns true, so watch out!
-      return false;
+      return true;
     default:
       // invalid entry name
-      return false;
+      return true;
   }
 }
 
