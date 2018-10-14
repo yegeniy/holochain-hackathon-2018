@@ -74,6 +74,25 @@ function eventUpdate (eventHash) {
 
 function rsvpCreate (rsvpEntry) {
   var rsvpHash = commit("rsvp", rsvpEntry);
+  // {
+  //   "attendees": {
+  //     "minimum": 0,
+  //     "default": 1,
+  //     "type": "integer"
+  //   },
+  //   "event": {
+  //     "type": "string",
+  //     "pattern": ".+"
+  //   },
+  //   "ctime_iso8601_utc": {
+  //     "type": "string",
+  //     "pattern": ".+"
+  //   }
+  // }
+
+  commit('event_links', {
+    Links: [{ Base: rsvpEntry.event, Link: rsvpHash, Tag: 'rsvp' }]
+  });
   return rsvpHash;
 }
 
@@ -115,7 +134,7 @@ function hostGroup (text) {
 }
 
 // TODO: implement
-function attendEvent(params) {
+function attendEvent(text) {
   // create rsvps to event, and appropriate links
 }
 function hostEvent (params) {
