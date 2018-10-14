@@ -144,6 +144,21 @@
           "Name": "listEventsByTag",
           "CallingType": "string",
           "Exposure": "public"
+        },
+        {
+          "Name": "listEventsByGroup",
+          "CallingType": "string",
+          "Exposure": "public"
+        },
+        {
+          "Name": "listGroupsByTag",
+          "CallingType": "string",
+          "Exposure": "public"
+        },
+        {
+          "Name": "joinGroup",
+          "CallingType": "string",
+          "Exposure": "public"
         }
       ]
     },

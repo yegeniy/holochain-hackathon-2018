@@ -7,15 +7,32 @@
 // -----------------------------------------------------------------
 //  Exposed functions with custom logic https://developer.holochain.org/API_reference
 // -----------------------------------------------------------------
-TAG = 'tag'
+
+/*
+  EVENTS: 'events',
+  HOST: 'host',
+  HOSTING: 'hosting',
+  TAG: 'tag',
+*/
+
 function groupCreate (groupEntry) {
   var groupHash = commit("group", groupEntry);
+  // TODO: groups.json should eventually have explicit tags
+  // if (tags && tags.length > 0) {
+  //   for (var i = groupEntry.tags.length - 1; i >= 0; i--) {
+  //     var tag = groupEntry.tags[i]
+  //     commit('group_links', {
+  //       Links: [{ Base: anchor('tag', tag), Link: groupHash, Tag: 'tag' }]
+  //     });
+  //   }
+  // }
   return groupHash;
 }
 
 function groupRead (groupHash) {
   var group = get(groupHash);
-  return group;
+  debug(groupHash + JSON.stringify(group))
+  return JSON.stringify(group);
 }
 
 function groupUpdate (groupHash) {
@@ -30,9 +47,17 @@ function eventCreate (eventEntry) {
   for (var i = eventEntry.tags.length - 1; i >= 0; i--) {
     var tag = eventEntry.tags[i]
     commit('event_links', {
-      Links: [{ Base: anchor(TAG, tag), Link: eventHash, Tag: TAG }]
+      Links: [{ Base: anchor('tag', tag), Link: eventHash, Tag: 'tag' }]
     });
   }
+  commit('event_links', {
+    Links: [{ Base: eventHash, Link: eventEntry.groupHash, Tag: 'group' },
+      { Base: eventHash, Link: App.Agent.Hash, Tag: 'host' },
+      { Base: App.Agent.Hash, Link: eventHash, Tag: 'hosting' }]
+  });
+  commit('group_links', {
+    Links: [{ Base: eventEntry.groupHash, Link: eventHash, Tag: 'events' }]
+  });
   return eventHash;
 }
 
@@ -89,19 +114,74 @@ function hostGroup (text) {
   return "a string";
 }
 
+// TODO: implement
+function attendEvent(params) {
+  // create rsvps to event, and appropriate links
+}
 function hostEvent (params) {
+  // commit('event_links', {
+  //   Links: [
+  //     {
+  //       Base: App.Agent.Hash,
+  //       Link: links[0].Hash,
+  //       Tag: FIRST_NAME,
+  //       LinkAction: HC.LinkAction.Del
+  //     }
+  //   ]
+  // });
+  commit('event_links', {
+    Links: [{ Base: App.Agent.Hash, Link: eventHash, Tag: HOST }]
+  });
   // your custom code here
   return {};
 }
 
+function listEventsIAmAttending(me) {
+  getLinks(anchor('attendee', me), 'event')
+}
+
+function listGroupsByTag(tag) {
+  var groupEntries = [];
+  var eventLinks = getLinks(anchor('tag', tag), 'tag');
+  debug(JSON.stringify(eventLinks))
+  for (var i = 0; i < eventLinks.length; i++) {
+    var groupHash = get(eventLinks[i].Hash).groupHash
+    groupEntries.push(groupHash);
+  }
+  // TODO: Maybe include event's tags when listing groups too?
+  return JSON.stringify(groupEntries);
+}
+
 function listEventsByTag (tag) {
   var eventEntries = [];
-  eventLinks = getLinks(anchor(TAG, tag), TAG);
+  eventLinks = getLinks(anchor('tag', tag), 'tag');
   for (var i = 0; i < eventLinks.length; i++) {
     eventEntries.push(get(eventLinks[i].Hash));
   }
   return JSON.stringify(eventEntries);
 }
+
+function listEventsByGroup (groupHash) {
+  var eventEntries = [];
+  eventLinks = getLinks(groupHash, 'events');
+  for (var i = 0; i < eventLinks.length; i++) {
+    eventEntries.push(get(eventLinks[i].Hash));
+  }
+  return JSON.stringify(eventEntries);
+}
+
+function joinGroup (groupHash) {
+  commit('group_links', {
+    Links: [
+      { Base: App.Agent.Hash, Link: groupHash, Tag: 'group' },
+      { Base: groupHash, Link: App.Agent.Hash, Tag: 'member' }
+    ]
+  });
+}
+
+
+
+////// anchors
 
 function anchor(anchorType, anchorText) {
   return call('anchors', 'anchor', {
@@ -109,6 +189,7 @@ function anchor(anchorType, anchorText) {
     anchorText: anchorText
   }).replace(/"/g, '');
 }
+
 function anchorExists(anchorType, anchorText) {
   return call('anchors', 'exists', {
     anchorType: anchorType,

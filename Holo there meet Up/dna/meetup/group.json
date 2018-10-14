@@ -3,21 +3,12 @@
   "id": "http://example.com/meetup/group.json",
   "type": "object",
   "required": [
-    "name",
-    "tags"
+    "name"
   ],
   "properties": {
     "name": {
       "type": "string",
       "pattern": ".+"
-    },
-    "tags": {
-      "default": [],
-      "items": {
-        "type": "string",
-        "pattern": ".+"
-      },
-      "type": "array"
     }
   }
 }

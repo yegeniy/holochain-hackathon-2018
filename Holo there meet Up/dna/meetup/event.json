@@ -3,10 +3,15 @@
   "id": "http://example.com/meetup/event.json",
   "type": "object",
   "required": [
-    "name"
+    "name",
+    "groupHash"
   ],
   "properties": {
     "name": {
+      "type": "string",
+      "pattern": ".+"
+    },
+    "groupHash": {
       "type": "string",
       "pattern": ".+"
     },
