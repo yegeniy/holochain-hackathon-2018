@@ -3,11 +3,11 @@
 pwd
 #TODO: What holochain port to use?
 # docker run --rm -d -it --name holo41 -p 4141:4141 -p 6141:6143 -v $(pwd):/app -w /app holochain/holochain-proto:develop hcdev web
-docker run --rm -d -it --name holo41 -p 4141:4141 -p 6141:6143 -v "`pwd`":/app -w /app holochain/holochain-proto:develop hcdev web
-docker run --rm -d -it --name holo42 -p 4142:4141 -p 6142:6143 -v "`pwd`":/app -w /app holochain/holochain-proto:develop hcdev web
-docker run --rm -d -it --name holo80 -p 8080:4141 -p 6180:6143 -v "`pwd`":/app -w /app holochain/holochain-proto:develop hcdev web
+docker run --rm -d -it --name holo41 -p 4141:4141 -p 6141:6143 -v "`pwd`":/app -w /app holochain/holochain-proto:develop hcdev web &
+docker run --rm -d -it --name holo42 -p 4142:4141 -p 6142:6143 -v "`pwd`":/app -w /app holochain/holochain-proto:develop hcdev web &
+docker run --rm -d -it --name holo80 -p 8080:4141 -p 6180:6143 -v "`pwd`":/app -w /app holochain/holochain-proto:develop hcdev web &
 
-sleep 5; 
+sleep 3; 
 
 echo
 echo as a potential user, search for \'test\' groups
@@ -34,7 +34,7 @@ echo
 echo as another potential user, find a group
 
 if [[ -z $1 ]]; then set -x; fi
-HASH=`curl -s -X POST "http://127.0.0.1:4142/fn/meetup/listGroupsByTag" -H "accept: text/plain" -H "Content-Type: text/plain" -d 'test'`
+HASH=`curl -s -X POST "http://127.0.0.1:4142/fn/meetup/listGroupsByTag" -H "accept: text/plain" -H "Content-Type: text/plain" -d 'test' | jq '.[0]' - | cut -c 2- | rev | cut -c 2- | rev`
 if [[ -z $1 ]]; then set +x; else read; fi
 
 echo
@@ -48,14 +48,16 @@ echo
 echo maybe they have good events
 
 if [[ -z $1 ]]; then set -x; fi
-curl -s -X POST "http://127.0.0.1:4142/fn/meetup/listEventsByGroup" -H "accept: text/plain" -H "Content-Type: text/plain" -d $HASH
+EVENT=`curl -s -X POST "http://127.0.0.1:4142/fn/meetup/listEventsByGroup" -H "accept: text/plain" -H "Content-Type: text/plain" -d $HASH` # | jq '.[0]' -`
+echo $EVENT | jq '.' -
+HASH=`echo $EVENT | jq 'keys[0]' - | cut -c 2- | rev | cut -c 2- | rev`
 if [[ -z $1 ]]; then set +x; else read; fi
 
 echo
 echo "we will attend that ... (handoff to Tarot Card App / presentation ???)"
 
 if [[ -z $1 ]]; then set -x; fi
-curl -s -X POST "http://127.0.0.1:4142/fn/meetup/joinGroup" -H "accept: text/plain" -H "Content-Type: text/plain" -d $HASH
+curl -s -X POST "http://127.0.0.1:4142/fn/meetup/attendEvent" -H "accept: text/plain" -H "Content-Type: text/plain" -d $HASH
 if [[ -z $1 ]]; then set +x; else read; fi
 
 read -p 'press ENTER to STOP'

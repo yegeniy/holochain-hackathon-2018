@@ -162,10 +162,11 @@ function listEventsByTag (tag) {
 }
 
 function listEventsByGroup (groupHash) {
-  var eventEntries = [];
+  var eventEntries = {};
   eventLinks = getLinks(groupHash, 'events');
   for (var i = 0; i < eventLinks.length; i++) {
-    eventEntries.push(get(eventLinks[i].Hash));
+    eventHash = eventLinks[i].Hash
+    eventEntries[eventHash]=get(eventHash);
   }
   return JSON.stringify(eventEntries);
 }
@@ -173,10 +174,15 @@ function listEventsByGroup (groupHash) {
 function joinGroup (groupHash) {
   commit('group_links', {
     Links: [
-      { Base: App.Agent.Hash, Link: groupHash, Tag: 'group' },
       { Base: groupHash, Link: App.Agent.Hash, Tag: 'member' }
     ]
   });
+  commit('group_links', {
+    Links: [
+      { Base: App.Agent.Hash, Link: groupHash, Tag: 'group' }
+    ]
+  });
+  return "OK"
 }
 
 

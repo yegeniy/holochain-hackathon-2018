@@ -159,6 +159,11 @@
           "Name": "joinGroup",
           "CallingType": "string",
           "Exposure": "public"
+        },
+        {
+          "Name": "attendEvent",
+          "CallingType": "string",
+          "Exposure": "public"
         }
       ]
     },
