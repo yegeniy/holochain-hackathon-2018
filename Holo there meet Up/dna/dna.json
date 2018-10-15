@@ -164,6 +164,11 @@
           "Name": "attendEvent",
           "CallingType": "string",
           "Exposure": "public"
+        },
+        {
+          "Name": "listRsvps",
+          "CallingType": "string",
+          "Exposure": "public"
         }
       ]
     },

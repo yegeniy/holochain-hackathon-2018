@@ -93,7 +93,16 @@ function rsvpCreate (rsvpEntry) {
   commit('event_links', {
     Links: [{ Base: rsvpEntry.event, Link: rsvpHash, Tag: 'rsvp' }]
   });
+  commit('rsvp_links', {
+    Links: [{ Base: rsvpHash, Link: App.Agent.Hash, Tag: 'member' }]
+  })
   return rsvpHash;
+}
+
+function listRsvps(eventHash) {
+  var rsvps = JSON.stringify(getLinks(eventHash, 'rsvp', {'Load': true}), null, 2)
+  // var who = JSON.stringify(getLinks(rsvpHash, 'member'), null, 2)
+  return rsvps // + "\n" + who
 }
 
 function rsvpRead (rsvpHash) {
@@ -156,7 +165,7 @@ function hostEvent (params) {
 }
 
 function listEventsIAmAttending(me) {
-  getLinks(anchor('attendee', me), 'event')
+  getLinks(anchor('attendee', me), 'event', {Load: true})
 }
 
 function listGroupsByTag(tag) {
