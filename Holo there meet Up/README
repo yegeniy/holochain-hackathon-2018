@@ -1,7 +1,3 @@
-### Start
-
-holochain> docker run --rm -it --name clutter -p 3141:3141 -p 4141:4141 -p 4142:4142 -p 8080:8080 -v (pwd):/root/ holochain/holochain-proto:develop
-
 ### Demo
 
 docker# cd "/root/Holo there meet Up"
@@ -11,10 +7,5 @@ Holo there meet Up> ./demo.sh
 
 ### High Level Tasks Remaining
 
-* Code the demo
 * Add UUIDs to entries
 * connect to another app, via the meetup (look into the bridge part for this)
-
-I need to run on 3 different "users" (or basically, 3 different docker instances)
-
-So, the code volume should be tied to a different directory than /root, because root will be the user.
